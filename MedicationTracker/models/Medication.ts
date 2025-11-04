@@ -1,11 +1,11 @@
 import { Note } from "./Note";
 
 export class Medication {
+    id: number;
     name: string;
-    notes: Note[];
 
-    public constructor(name: string, notes: Note[]) {
+    public constructor(id: number, name: string) {
+        this.id = id;
         this.name = name;
-        this.notes = notes;
     }
 }
