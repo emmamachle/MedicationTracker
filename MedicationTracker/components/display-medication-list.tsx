@@ -2,6 +2,7 @@ import { Entry } from "@/models/Entry";
 import { Medication } from "@/models/Medication";
 import { Note } from "@/models/Note";
 import { View } from "react-native";
+import { Link } from "expo-router";
 
 /** 
  * Render code to display the full list of the user's medications.
@@ -21,6 +22,10 @@ export function DisplayMedicationList() {
                         <span>{ m.ampm }</span>
                         <br></br>
                         <span>{ m.quantity }</span>
+                        <br></br>
+                        <span><Link href={{ pathname: "/entry/view", params: { id: m.id } }}>View</Link></span>
+                        <span>Edit</span>
+                        <span>Delete</span>
                         </li>
                     ))}
                 </ul>

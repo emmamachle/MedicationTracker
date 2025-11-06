@@ -6,14 +6,12 @@ export class Entry {
     medication: Medication;
     ampm: string;
     quantity: string;
-    notes: Note[];
 
-    public constructor(id: number, medication: Medication, ampm: string, quantity: string, notes: Note[]) {
+    public constructor(id: number, medication: Medication, ampm: string, quantity: string) {
         this.id = id;
         this.medication = medication;
         this.ampm = ampm;
         this.quantity = quantity;
-        this.notes = notes;
     }
 
     // Static class methods for reading
@@ -32,8 +30,8 @@ export class Entry {
 }
 
 // Fake data for testing
-    var fakemedication = new Medication(1, "Losartan");
+    var fakemedication = new Medication(1, "Losartan", [new Note(1, "Take with food")]);
     let meds = [
-        new Entry(1, fakemedication, "AM", "10 pills", [new Note(1, "Take with food")]),
-        new Entry(2, fakemedication, "PM", "15 mL", [new Note(1, "Take with food")]),
+        new Entry(1, fakemedication, "AM", "10 pills"),
+        new Entry(2, fakemedication, "PM", "15 mL"),
     ];

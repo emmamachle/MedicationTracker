@@ -1,4 +1,4 @@
-import RenderIndividualEntry from "@/components/render-individual-entry";
+import { RenderIndividualEntry } from "@/components/render-individual-entry";
 import { Entry } from "@/models/Entry";
 import { Medication } from "@/models/Medication";
 import { Note } from "@/models/Note";
@@ -14,7 +14,12 @@ export default function ViewEntryScreen() {
     var e = Entry.getByID(parseInt(id));
 
     if (e != undefined) {
-        <RenderIndividualEntry id={e.id} medication={e.medication} ampm={e.ampm} quantity={e.quantity} notes={e.notes}  />
+        console.log("displaying entry");
+        console.log(e.id);
+        console.log(e.medication.name);
+        return (
+        <RenderIndividualEntry entry={e}  />
+        );
     } else {
         // Then the specific entry doesn't exist
         return (
