@@ -10,4 +10,8 @@ export class Medication {
         this.name = name;
         this.notes = notes;
     }
+
+    static createNew(name: string, notes: string[]): void {
+        console.log("Called createNew with arguments " + name + " and " + notes);
+    }
 }
