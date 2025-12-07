@@ -1,0 +1,131 @@
+{
+  "entries": [],
+  "medications": [
+    {
+      "id": "1",
+      "name": "Losartan",
+      "notes": [
+        1
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Crack cocaine",
+      "notes": []
+    },
+    {
+      "id": "3804",
+      "name": "G",
+      "notes": [
+        "f34f",
+        "a3c1"
+      ]
+    },
+    {
+      "id": "547b",
+      "name": "G",
+      "notes": [
+        "2995"
+      ]
+    },
+    {
+      "id": "8edf",
+      "name": "G",
+      "notes": [
+        "d12e"
+      ]
+    },
+    {
+      "id": "2513",
+      "name": "Poop",
+      "notes": [
+        2996
+      ]
+    },
+    {
+      "id": "2906",
+      "name": "Haloperidol",
+      "notes": [
+        2997,
+        2998
+      ]
+    },
+    {
+      "id": "27a4",
+      "name": "Haloperidol",
+      "notes": [
+        2999,
+        3000
+      ]
+    },
+    {
+      "id": "745a",
+      "name": "Pristiq",
+      "notes": [
+        3001
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "text": "Take with food."
+    },
+    {
+      "id": 2,
+      "text": "Drink plenty of water."
+    },
+    {
+      "id": 3,
+      "text": "Store at room temperature away from moisture, heat, and light."
+    },
+    {
+      "id": 4,
+      "text": "Store at room temperature away from moisture, heat, and light."
+    },
+    {
+      "id": "f34f",
+      "text": "G"
+    },
+    {
+      "id": "a3c1",
+      "text": ""
+    },
+    {
+      "id": "2995",
+      "text": "G"
+    },
+    {
+      "id": 5,
+      "text": "Drink plenty of water."
+    },
+    {
+      "id": "d12e",
+      "text": "G"
+    },
+    {
+      "id": 2996,
+      "text": ""
+    },
+    {
+      "id": 2997,
+      "text": "Store at room temperature away from moisture, heat, and light."
+    },
+    {
+      "id": 2998,
+      "text": "Do not allow liquid medicine to freeze."
+    },
+    {
+      "id": 2999,
+      "text": "Store at room temperature away from moisture, heat, and light."
+    },
+    {
+      "id": 3000,
+      "text": "Do not allow liquid medicine to freeze."
+    },
+    {
+      "id": 3001,
+      "text": "Do not use Pristiq within 7 days before or 14 days after you have used an MAO inhibitor"
+    }
+  ]
+}

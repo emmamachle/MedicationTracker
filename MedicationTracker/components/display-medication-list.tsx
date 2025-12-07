@@ -4,6 +4,7 @@ import { Note } from "@/models/Note";
 import { View, Text, Pressable, ListRenderItemInfo, FlatList, StyleSheet } from "react-native";
 import { Link, useRouter } from "expo-router";
 import DisplayIndividualMedicationCard from "./display-individual-medication-card";
+import { useEffect, useState } from "react";
 
 /** 
  * Render code to display the full list of the user's medications.
@@ -11,8 +12,12 @@ import DisplayIndividualMedicationCard from "./display-individual-medication-car
  * in this function for testing purposes.
 */
 export default function DisplayMedicationList() {
-    let meds = Entry.getAll();
+    const [meds, setMeds] = useState<Entry[]>([]);
     const router = useRouter();
+
+    useEffect(() => {
+        Entry.getAll().then(setMeds);
+    }, [])
 
     const renderItem = ({item,index}: ListRenderItemInfo<Entry>) =>{
 

@@ -50,6 +50,14 @@ export default function RootLayout() {
         name="entry/view"
         options={{ title: "View Entry" }}
       />
+      <Stack.Screen
+        name="entry/create"
+        options={{ title: "Create New Entry" }}
+      />
+      <Stack.Screen
+        name="medication/create"
+        options={{ title: "Create New Medication" }}
+      />
       </Stack>
     </>
   );

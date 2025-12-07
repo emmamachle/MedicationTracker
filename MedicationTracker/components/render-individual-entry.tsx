@@ -1,4 +1,6 @@
 import { Entry } from "@/models/Entry";
+import { useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 type ImDesperate = {
@@ -6,45 +8,56 @@ type ImDesperate = {
 };
 
 export function RenderIndividualEntry({ entry }: ImDesperate) {
+  const id = useLocalSearchParams().id;
+  const [med, setMed] = useState<Entry>();
+  useEffect(() => {
+          Entry.getByID(id).then(setMed);
+      }, [])
+  
+  const notes = med?.medication?.notes ?? [];
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.entryLabel}>Entry</Text>
-        <Text style={styles.entryId}>#{entry.id}</Text>
+        <Text style={styles.entryId}>#{med?.id}</Text>
 
         <View style={styles.section}>
           <Text style={styles.sectionLabel}>Medication</Text>
-          <Text style={styles.sectionValue}>{entry.medication.name}</Text>
+          <Text style={styles.sectionValue}>{med?.medication?.name ?? "No Name"}</Text>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionLabel}>Instructions</Text>
           <Text style={styles.sectionValue}>
-            Take {entry.quantity} in the{" "}
+            Take {med?.quantity} in the{" "}
             <Text style={styles.ampmPill}>
-              {entry.ampm === "AM"
+              {med?.ampm === "AM"
                 ? "morning"
-                : entry.ampm === "PM"
+                : med?.ampm === "PM"
                 ? "evening"
-                : entry.ampm}
+                : med?.ampm}
             </Text>
             .
           </Text>
         </View>
 
-        {entry.medication.notes && entry.medication.notes.length > 0 && (
-          <View style={styles.section}>
-            <Text style={styles.sectionLabel}>Notes</Text>
-            {entry.medication.notes.map((n) => (
+        <View style={styles.section}>
+          <Text style={styles.sectionLabel}>Notes</Text>
+          {notes.length > 0 ? (
+            notes.map((n) => (
               <View key={n.id} style={styles.noteRow}>
                 <Text style={styles.bullet}>•</Text>
                 <Text style={styles.noteText}>{n.text}</Text>
               </View>
-            ))}
+            ))
+          ) : (
+            <Text style={styles.noteText}>No notes</Text>
+          )}
+        </View>
+
           </View>
-        )}
       </View>
-    </View>
   );
 }
 

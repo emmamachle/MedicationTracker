@@ -1,6 +1,6 @@
 import { Entry } from "@/models/Entry";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { Link } from "expo-router";
+import { Link, router, useRouter } from "expo-router";
 import { View, Pressable, Text, StyleSheet } from "react-native";
 
 type Props = {
@@ -9,11 +9,13 @@ type Props = {
 
 export default function DisplayIndividualMedicationCard ({med}: Props) {
 
+    const router = useRouter();
+
     return (
         <View style={styles.card}>
 
         <View key={med.id} style={{ marginBottom: 12 }}>
-        <Text style={styles.name}>{med.medication.name}</Text>
+        <Text style={styles.name}>{med.medication?.name}</Text>
 
         <View style={styles.metaRow}>
             <Text style={styles.metaLabel}>{med.ampm}</Text>
@@ -32,22 +34,12 @@ export default function DisplayIndividualMedicationCard ({med}: Props) {
             </Pressable>
             </Link>
 
-            <Pressable
-            onPress={() => {
-                /* handle edit */
-            }}
-            style={styles.iconButton}
-            >
-            <MaterialCommunityIcons
-                name="lead-pencil"
-                size={24}
-                color="turquoise"
-            />
-            </Pressable>
+            
 
             <Pressable
             onPress={() => {
-                /* handle delete */
+                Entry.deleteByID(med.id);
+                router.replace("/");
             }}
             style={styles.iconButton}
             >
@@ -59,7 +51,6 @@ export default function DisplayIndividualMedicationCard ({med}: Props) {
             </Pressable>
         </View>
         </View>
-    ))
         </View>
 
     );
